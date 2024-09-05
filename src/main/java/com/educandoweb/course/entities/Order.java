@@ -9,7 +9,7 @@ import java.time.Instant;
 import java.util.Objects;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "tb_orders")
 public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
 
