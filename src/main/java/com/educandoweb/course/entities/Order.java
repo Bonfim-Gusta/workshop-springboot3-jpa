@@ -2,6 +2,7 @@ package com.educandoweb.course.entities;
 
 import com.educandoweb.course.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -42,6 +43,14 @@ public class Order implements Serializable {
         this.moment = moment;
         setOrderStatus(orderStatus);
         this.client = client;
+    }
+
+    public Double getTotal(){
+        Double total = 0.0;
+        for (OrderItem oi : items){
+            total += oi.getSubTotal();
+        }
+        return total;
     }
 
     public Long getId() {
